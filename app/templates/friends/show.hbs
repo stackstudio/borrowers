@@ -1,0 +1,9 @@
+<ul>
+  <li>First Name: {{model.firstName}}</li>
+  <li>Last Name: {{model.lastName}}</li>
+  <li>Email: {{model.email}}</li>
+  <li>twitter: {{model.twitter}}</li>
+  <li>id: {{model.id}}</li>
+  <li>{{link-to "Edit info" "friends.edit" model}}</li>
+</ul>
+{{#link-to 'friends'}}Fiends List{{/link-to}}
