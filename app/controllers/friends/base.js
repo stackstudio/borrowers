@@ -26,6 +26,8 @@ export default Ember.Controller.extend({
       return false;
     },
     cancel: function() {
+      // var friend = this.get('model');
+      // this.transitionToRoute('friends.show', friend);
       return true;
     }
   }
