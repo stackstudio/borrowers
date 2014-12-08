@@ -12,6 +12,7 @@ export default Ember.Route.extend({
     // is in 'isNew' state, which means it wasn't saved to the backend
     if (model.get('isNew')) {
       model.destroyRecord();
+      this.transitionTo('friends');
     }
   },
   actions: {
