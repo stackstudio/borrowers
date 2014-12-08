@@ -9,7 +9,7 @@ export default Ember.Controller.extend({
     'hasEmail',
     'hasFirstName',
     'hasLastName',
-    'hadTwitter'
+    'hasTwitter'
   ),
   actions: {
     save: function() {
