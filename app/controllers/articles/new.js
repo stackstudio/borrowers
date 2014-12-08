@@ -7,7 +7,7 @@ export default Ember.Controller.extend({
   actions: {
     save: function() {
       if (!this.get('isValid')) {
-        this.set('errorMessage', 'A description is required')
+        this.set('errorMessage', 'A description is required');
       }
       return true;
     },

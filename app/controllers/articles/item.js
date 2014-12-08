@@ -9,7 +9,7 @@ export default Ember.Controller.extend({
   },
   isDirtyChanged: function() {
     if (this.get('model.isDirty') && !this.get('model.isSaving')) {
-      Ember.run.once(this, this.autoSave)
+      Ember.run.once(this, this.autoSave);
     }
   }.on('init').observes('model.isDirty')
 });
