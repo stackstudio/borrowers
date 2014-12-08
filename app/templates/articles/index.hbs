@@ -6,15 +6,21 @@
       <th>Notes</th>
       <th>Borrowed since</th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
-    {{#each article in model}}
+    {{#each itemController='articles/item'}}
       <tr>
-        <td>{{article.description}}</td>
-        <td>{{article.notes}}</td>
-        <td>{{article.createdAt}}</td>
-        <td></td>
+        <td>{{model.description}}</td>
+        <td>{{model.notes}}</td>
+        <td>{{model.createdAt}}</td>
+        <td>{{view Ember.Select content=states selection=model.state}}</td>
+        <td>
+          {{#if model.isSaving}}
+            <p>Saving ...</p>
+          {{/if}}
+        </td>
       </tr>
     {{/each}}
   </tbody>
