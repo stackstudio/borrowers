@@ -7,7 +7,7 @@ export default Ember.Route.extend({
 
     if (articles.get('isFulfilled')) {
       console.log("----reloading articles----");
-      // articles.reload();
+      articles.reload();
     }
 
     return articles;
