@@ -15,7 +15,7 @@
         <td>{{model.description}}</td>
         <td>{{model.notes}}</td>
         <td>{{formatted-date model.createdAt 'LLL'}}</td>
-        <td>{{view select content=states selection=model.state}}</td>
+        <td {{action 'save' model on='change'}}>{{view select content=states selection=model.state}}</td>
         <td>
           {{#if model.isSaving}}
             <p>Saving ...</p>
