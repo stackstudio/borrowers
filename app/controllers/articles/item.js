@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  states: ['borrowed', 'returned']
+  // states: ['borrowed', 'returned']
   // states: ['borrowed', 'returned'],
   // autoSave: function() {
   //   if (!this.get('model.isNew')) {

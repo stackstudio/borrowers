@@ -5,19 +5,20 @@
       <th>Description</th>
       <th>Notes</th>
       <th>Borrowed since</th>
-      <th></th>
+      <th>{{input type="checkbox" checked=showReturned}}Show Returned</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
-    {{#each itemController='articles/item'}}
+    {{!-- {{#each itemController='articles/item'}} --}}
+    {{#each article in filteredResults}}
       <tr>
-        <td>{{model.description}}</td>
-        <td>{{model.notes}}</td>
-        <td>{{formatted-date model.createdAt 'LLL'}}</td>
-        <td {{action 'save' model on='change'}}>{{view select content=states selection=model.state}}</td>
+        <td>{{article.description}}</td>
+        <td>{{article.notes}}</td>
+        <td>{{formatted-date article.createdAt 'LLL'}}</td>
+        <td {{action 'save' article on='change'}}>{{view select content=states selection=article.state}}</td>
         <td>
-          {{#if model.isSaving}}
+          {{#if article.isSaving}}
             <p>Saving ...</p>
           {{/if}}
         </td>
