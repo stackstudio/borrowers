@@ -4,7 +4,7 @@ export default Ember.ArrayController.extend({
   states: ['borrowed', 'returned'],
   queryParams: ['sortBy', 'showReturned'],
   showReturned: true,
-  filteredResults: Ember.computed('showReturned', function() {
+  filteredResults: Ember.computed('model.@each.state', 'showReturned', function() {
     if (this.showReturned) {
       return this;
     } else {
