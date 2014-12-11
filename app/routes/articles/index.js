@@ -13,8 +13,12 @@ export default Ember.Route.extend({
     return articles;
   },
   actions: {
-    save: function(model) {
-      model.save();
+    save: function(article) {
+      article.save();
+      return false;
+    },
+    delete: function(article) {
+      article.destroyRecord();
       return false;
     }
   }

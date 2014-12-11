@@ -7,6 +7,7 @@
       <th>Borrowed since</th>
       <th>{{input type="checkbox" checked=showReturned}}Show Returned</th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -22,6 +23,7 @@
             <p>Saving ...</p>
           {{/if}}
         </td>
+        <td><a href="#" class="icon-trash" {{action "delete" article}}></a></td>
       </tr>
     {{/each}}
   </tbody>
