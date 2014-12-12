@@ -6,9 +6,9 @@
       <p class="icon-mail">{{model.email}}</p>
       <p class="icon-twitter">{{model.twitter}}</p>
       <ul class="friend-profile-links">
-        <li>{{link-to 'Lend article' 'articles.new'}}</li>
-        <li>{{link-to "Edit info" "friends.edit" model}}</li>
-        <li><a href="#" {{action "delete" model}}>delete</a></li>
+        <li>{{link-to 'lend article' 'articles.new' class="icon-plus"}}</li>
+        <li>{{link-to "edit" "friends.edit" model class="icon-pencil"}}</li>
+        <li><a href="#" class="icon-trash"{{action "delete" model}}>delete</a></li>
       </ul>
     </div>
   </div>

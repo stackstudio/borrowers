@@ -1,32 +1,33 @@
-{{#if filteredResults}}
-  <h2>Articles Index</h2>
-  <table class="primary">
-    <thead>
+<h2>Articles Index</h2>
+<table class="primary">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Notes</th>
+      <th>Borrowed since</th>
+      <th>Show Returned{{input type="checkbox" checked=showReturned}}</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{!-- {{#each itemController='articles/item'}} --}}
+    {{#each article in filteredResults}}
       <tr>
-        <th>Description</th>
-        <th>Notes</th>
-        <th>Borrowed since</th>
-        <th>{{input type="checkbox" checked=showReturned}}Show Returned</th>
-        <th></th>
-        <th></th>
+        <td>{{article.description}}</td>
+        <td>{{article.notes}}</td>
+        <td>{{formatted-date article.createdAt 'LLL'}}</td>
+        <td {{action 'save' article on='change'}}>{{view select content=states selection=article.state}}</td>
+        <td>
+          {{#if article.isSaving}}
+            <p>Saving ...</p>
+          {{/if}}
+        </td>
+        <td>
+          <a href="#" class="icon-pencil" {{action 'edit' article on='click'}}></a>
+          <a href="#" class="icon-trash" {{action "delete" article}}></a>
+        </td>
       </tr>
-    </thead>
-    <tbody>
-      {{!-- {{#each itemController='articles/item'}} --}}
-      {{#each article in filteredResults}}
-        <tr>
-          <td>{{article.description}}</td>
-          <td>{{article.notes}}</td>
-          <td>{{formatted-date article.createdAt 'LLL'}}</td>
-          <td {{action 'save' article on='change'}}>{{view select content=states selection=article.state}}</td>
-          <td>
-            {{#if article.isSaving}}
-              <p>Saving ...</p>
-            {{/if}}
-          </td>
-          <td><a href="#" class="icon-trash" {{action "delete" article}}></a></td>
-        </tr>
-      {{/each}}
-    </tbody>
-  </table>
-{{/if}}
+    {{/each}}
+  </tbody>
+</table>
