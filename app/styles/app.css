@@ -42,5 +42,5 @@ table {
 
 .lend-article a {
   float: left;
-  margin-top: 1em;
+  margin: 1em 0;
 }
