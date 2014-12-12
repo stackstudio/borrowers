@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.ArrayController.extend({
   states: ['borrowed', 'returned'],
-  queryParams: ['sortBy', 'showReturned'],
+  queryParams: ['sortBy', 'showReturned', 'sortAscending'],
   showReturned: true,
   sortAscending: true,
   sortBy: 'description',
