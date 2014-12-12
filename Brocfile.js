@@ -35,4 +35,7 @@ app.import('bower_components/picnic/releases/v2.css');
 
 app.import('bower_components/moment/moment.js');
 
+app.import('bower_components/sweetalert/lib/sweet-alert.js');
+app.import('bower_components/sweetalert/lib/sweet-alert.css');
+
 module.exports = app.toTree();
