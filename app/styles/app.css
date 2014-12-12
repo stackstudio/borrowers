@@ -39,3 +39,8 @@ table {
   list-style-type: none;
   padding-right: 20px;
 }
+
+.lend-article a {
+  float: left;
+  margin-top: 1em;
+}
