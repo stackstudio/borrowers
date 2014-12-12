@@ -4,13 +4,28 @@ export default Ember.ArrayController.extend({
   states: ['borrowed', 'returned'],
   queryParams: ['sortBy', 'showReturned'],
   showReturned: true,
-  filteredResults: Ember.computed('model.@each.state', 'showReturned', function() {
+  sortAscending: true,
+  sortBy: 'description',
+  sortProperties: Ember.computed('sortBy', function() {
+    return [this.get('sortBy')];
+  }),
+  filteredResults: Ember.computed('model.[]', 'model.@each.state',
+                                  'showReturned', 'sortBy',
+                                  'sortAscending', function() {
     if (this.showReturned) {
-      return this;
+      return this.get('arrangedContent');
     } else {
-      return this.filterBy('state', 'borrowed');
+      return this.get('arrangedContent').filterBy('state', 'borrowed');
     }
   }),
+  actions: {
+    setSortBy: function(fieldName) {
+      this.set('sortBy', fieldName);
+      this.toggleProperty('sortAscending');
+
+      return false;
+    }
+  },
   contentDidChange: function() {
     console.log('**** called when we add or remove an article.');
   }.observes('model.[]'),
