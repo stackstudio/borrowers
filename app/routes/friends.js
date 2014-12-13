@@ -11,12 +11,12 @@ export default Ember.Route.extend({
       return true;
     },
     delete: function(friend) {
-      var _this = this,
-          _friend = friend;
-          
+      var _this = this;
+
+      console.log('friends route - deleting: ' + friend.get('fullName'));
       swal({
         title: "Are you sure?",
-        text: "You will not be able to recover " + friend.get('firstName') + "!",
+        text: friend.get('firstName') + " currently has " + friend.get('totalArticles') + " items of yours!",
         type: "warning",
         showCancelButton: true,
         confirmButtonColor: "#DD6B55",
