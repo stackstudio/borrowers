@@ -13,7 +13,6 @@ export default Ember.Route.extend({
     delete: function(friend) {
       var _this = this;
 
-      console.log('friends route - deleting: ' + friend.get('fullName'));
       swal({
         title: "Are you sure?",
         text: friend.get('firstName') + " currently has " + friend.get('totalArticles') + " items of yours!",
