@@ -23,8 +23,17 @@ export default Ember.Route.extend({
         closeOnConfirm: false
       },
       function() {
+        var articles = friend.get('articles'),
+            list = articles.toArray(),
+            _friend = friend;
+
+        list.forEach(function(article) {
+          article.destroyRecord();
+          articles.removeObject(article);
+        });
+
         friend.destroyRecord().then(function() {
-          swal("Deleted!", friend.get('fullName'), "success");
+          swal("Deleted!", _friend.get('fullName'), "success");
           _this.transitionTo('friends.index');
         });
       });
