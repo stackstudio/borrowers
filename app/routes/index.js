@@ -1,16 +1,15 @@
 import Ember from 'ember';
-import request from 'ic-ajax';
 
 export default Ember.Route.extend({
   model: function() {
-    return request('api/friends').then(function(data) {
+    return this.store.find('friend').then(function(friends) {
       return {
-        friendsCount: data.friends.length,
+        friendsCount: friends.get('length'),
         articlesCount: function() {
           var count = 0;
 
-          data.friends.forEach(function(friend) {
-            count += friend.total_articles;
+          friends.forEach(function(friend) {
+            count += friend.get('totalArticles');
           });
           return count;
         }()
