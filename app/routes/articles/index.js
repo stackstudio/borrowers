@@ -21,7 +21,10 @@ export default Ember.Route.extend({
       if (model.get('constructor.typeKey') === 'friend') {
         return true;
       }
-      model.destroyRecord();
+      var friend = model.get('friend');
+      model.destroyRecord().then(function() {
+        friend.reload();
+      });
       return false;
     }
   }
