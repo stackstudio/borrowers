@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
-export default Ember.ArrayController.extend({
+export default Ember.Controller.extend({
+// export default Ember.ArrayController.extend({
   contentDidChange: function() {
     console.log('**** called when we add or remove an article.');
   }.observes('model.[]'),
