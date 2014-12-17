@@ -16,7 +16,7 @@ Router.map(function() {
       });
     });
   });
-  this.resource('all-articles', { path: 'articles'}, function() {
+  this.resource('all-articles', { path: 'allarticles'}, function() {
     this.route('edit', { path: ':article_id/edit' });
   });
 });
