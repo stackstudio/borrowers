@@ -3,7 +3,7 @@
   <fieldset>
     {{input value=model.description placeholder='Description'}}</br>
     {{input value=model.notes placeholder='Notes'}}</br>
-    <button {{action "save"}} class="primary">Save</button>
+    <button {{action "save" model}} class="primary">Save</button>
     <button {{action "cancel"}}>Cancel</button>
   </fieldset>
 </form>
