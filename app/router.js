@@ -16,7 +16,9 @@ Router.map(function() {
       });
     });
   });
-  this.resource('allArticles', { path: 'articles'}, function() { });
+  this.resource('all-articles', { path: 'articles'}, function() {
+    this.route('edit', { path: ':article_id/edit' });
+  });
 });
 
 export default Router;
