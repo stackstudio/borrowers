@@ -18,12 +18,14 @@ export default Ember.Route.extend({
       return false;
     },
     delete: function(model) {
+      var friend = model.get('friend'),
+          _this = this;
+
       if (model.get('constructor.typeKey') === 'friend') {
         return true;
       }
-      var friend = model.get('friend');
       model.destroyRecord().then(function() {
-        friend.reload();
+        _this.store.fetch('friend', friend.get('id'));
       });
       return false;
     }

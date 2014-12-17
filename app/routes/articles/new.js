@@ -17,9 +17,9 @@ export default Ember.Route.extend({
     save: function() {
       var _this = this;
       var model = this.modelFor('articles/new');
-      
+
       model.save().then(function() {
-        model.get('friend').reload().then(function() {
+        _this.store.fetch('friend', model.get('friend').get('id')).then(function() {
           _this.transitionTo('articles');
         });
       });
