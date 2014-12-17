@@ -12,11 +12,13 @@ export default Ember.ArrayController.extend({
   filteredResults: Ember.computed('model.[]', 'model.@each.state',
                                   'showReturned', 'sortBy',
                                   'sortAscending', function() {
-    if (this.showReturned) {
-      return this.get('arrangedContent');
-    } else {
-      return this.get('arrangedContent').filterBy('state', 'borrowed');
+    var results = this.get('arrangedContent');
+
+    console.log('filtered');
+    if (!this.showReturned) {
+      results = results.filterBy('state', 'borrowed');
     }
+    return results
   }),
   actions: {
     setSortBy: function(fieldName) {

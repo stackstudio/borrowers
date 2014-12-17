@@ -1,5 +1,5 @@
-import Ember from 'ember';
+import ArticlesIndexController from '../articles/index';
 
-export default Ember.ArrayController.extend({
-  states: ['borrowed', 'returned']
+export default ArticlesIndexController.extend({
+
 });

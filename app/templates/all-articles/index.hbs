@@ -4,7 +4,7 @@
     <tr>
       <th {{action 'setSortBy' 'description'}}>Description</th>
       <th {{action 'setSortBy' 'notes'}}>Notes</th>
-      <th>Borrowed by</th>
+      <th {{action 'setSortBy' 'friend.fullName'}}>Borrowed by</th>
       <th {{action 'setSortBy' 'createdAt'}}>Borrowed since</th>
       <th>Show Returned{{input type="checkbox" checked=showReturned}}</th>
       <th></th>  {{!-- edit / delete --}}
@@ -12,8 +12,7 @@
     </tr>
   </thead>
   <tbody>
-    {{!-- {{#each itemController='articles/item'}} --}}
-    {{#each article in arrangedContent}}
+    {{#each article in filteredResults}}
     <tr>
       <td>{{article.description}}</td>
       <td>{{article.notes}}</td>
@@ -22,7 +21,6 @@
       <td {{action 'save' article on='change'}}>{{view select content=states selection=article.state}}</td>
       <td>
         {{link-to '' 'all-articles.edit' article class="icon-pencil"}}
-        {{!-- <a class="icon-pencil"></a> --}}
         <a href="#" class="icon-trash" {{action "delete" article}}></a>
       </td>
       <td>
