@@ -18,7 +18,7 @@ export default Ember.ArrayController.extend({
     if (!this.showReturned) {
       results = results.filterBy('state', 'borrowed');
     }
-    return results
+    return results;
   }),
   actions: {
     setSortBy: function(fieldName) {
